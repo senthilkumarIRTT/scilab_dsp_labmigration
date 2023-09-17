@@ -3,8 +3,20 @@ clear all;
 clc;
 x1 = input('Enter the first sequence x1[n]=')
 x2 = input('Enter the second sequence x2[n]=')
+
 //x1 = [1,3,5,7];
 //x2 = [2,4,6,8];
+
+//Circular Convolution using fft() library
+X1 = fft(x1,-1); //fft of x1
+X2 = fft(x2,-1); //fft of x2
+X3 = X1.*X2;     // multiply X1(K) and X2(K)
+x_3 = fft(X3,1); //ifft of X3(K)
+
+disp('Circular Convolution using fft()')
+disp(x_3)
+
+
 m = length(x1)
 n = length(x2)
 a = zeros(1,max(m,n))
@@ -42,9 +54,14 @@ disp(x3)
 
 //OUTPUT Test case
 //Enter the first sequence x1[n]=[1,2,3,4]
+//
 //Enter the second sequence x2[n]=[1,1,1,1]
-
-//Result
-// "Circular Convolution Result x3 = "
-// 10.   10.   10.   10.
- 
+//
+//
+//  "Circular Convolution using fft()"
+//
+//   10.   10.   10.   10.
+//
+//  "Circular Convolution Result x3 = "
+//
+//   10.   10.   10.   10.
