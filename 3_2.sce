@@ -4,6 +4,13 @@ clc;
 x = [1,2,1,1];       
 L = length(x);
 h1 = [1,1,2,1];
+
+//Cross-correlation using built-in function xcorr()
+R_xy = xcorr(x,h1)
+disp('Cross correlation using built-in function xcorr()')
+disp(R_xy)
+//////////////////////////////////////////////////
+
 for i = 1:L
   h(L-i+1) = h1(i);
 end
@@ -33,6 +40,10 @@ disp(Rxy)
 
 //OUTPUT Test Case
 //Result
+//"Cross correlation using built-in function xcorr()"
+//
+//   1.   4.   6.   6.   5.   2.   1.
+//
 //  "The input sequence 1 ="
 //
 //   1.   2.   1.   1.   0.   0.   0.
@@ -44,4 +55,4 @@ disp(Rxy)
 //  "Cross Correlation Result is"
 //
 //   1.   4.   6.   6.   5.   2.   1.
-//
+
